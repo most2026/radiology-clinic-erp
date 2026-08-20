@@ -36,7 +36,7 @@ if (process.env.NODE_ENV !== "production") {
 
 // ==== مسار تجريبي للتأكد من عمل السيرفر ====
 app.get("/", (req, res) => {
-  res.send("✅ السيرفر يعمل بنجاح - Radiology Clinic ERP");
+  res.render("pages/dashboard");
 });
 
 // ==== تشغيل السيرفر ====

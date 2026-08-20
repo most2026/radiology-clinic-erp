@@ -1,0 +1,44 @@
+/* ==== إعدادات عامة ==== */
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: #f4f6f9;
+}
+
+/* ==== الشريط الجانبي (Sidebar) ==== */
+.sidebar {
+  min-height: 100vh;
+  background-color: #1e293b;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar .nav-link {
+  color: #cbd5e1;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  transition: 0.2s;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background-color: #334155;
+  color: #fff;
+}
+
+.sidebar .nav-link i {
+  margin-left: 8px;
+}
+
+/* ==== منطقة المحتوى ==== */
+.main-content {
+  padding: 24px;
+}
+
+/* ==== بطاقات لوحة التحكم ==== */
+.stat-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}

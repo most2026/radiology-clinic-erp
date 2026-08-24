@@ -1,13 +1,13 @@
-<!-- الشريط العلوي: معلومات المستخدم وتسجيل الخروج -->
 <nav class="navbar navbar-light bg-white border-bottom px-4 py-3">
   <span class="fw-bold text-secondary">
     <i class="bi bi-hospital"></i> نظام إدارة عيادة الأشعة
   </span>
 
   <div class="d-flex align-items-center gap-3">
-    <!-- سيتم استبدال هذا ببيانات المستخدم الفعلي بعد بناء المصادقة -->
     <span class="text-muted small">
-      <i class="bi bi-person-circle"></i> اسم المستخدم
+      <i class="bi bi-person-circle"></i>
+      <%= currentUser.fullName %>
+      (<%= currentUser.role === "secretary" ? "سكرتير" : "طبيب" %>)
     </span>
     <a href="/logout" class="btn btn-sm btn-outline-danger">
       <i class="bi bi-box-arrow-right"></i> تسجيل خروج

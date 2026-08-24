@@ -33,12 +33,13 @@
         <i class="bi bi-people"></i> التقنيين
       </a>
     </li>
-
-    <!-- هذا الرابط سيظهر فقط للسكرتير عبر شرط لاحقاً في الخطوة 5 -->
+    
+        <% if (currentUser.role === "secretary") { %>
     <li class="nav-item">
       <a href="/audit-logs" class="nav-link">
         <i class="bi bi-shield-check"></i> سجل التدقيق
       </a>
     </li>
+    <% } %>
   </ul>
 </div>

@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
       required: [true, "الاسم الكامل مطلوب"],
       trim: true,
     },
+
     username: {
       type: String,
       required: [true, "اسم المستخدم مطلوب"],
@@ -15,12 +16,14 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+
     password: {
       type: String,
       required: [true, "كلمة المرور مطلوبة"],
       minlength: 6,
-      select: false, // لا تُرجع مع أي استعلام إلا إذا طُلبت صراحة
+      select: false,
     },
+
     role: {
       type: String,
       enum: {
@@ -29,20 +32,23 @@ const userSchema = new mongoose.Schema(
       },
       required: true,
     },
+
     isActive: {
       type: Boolean,
-      default: true, // لتعطيل الحساب بدل حذفه نهائياً
+      default: true,
     },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 // تشفير كلمة المرور تلقائياً قبل الحفظ
-userSchema.pre("save", async function (next) {
-  if (!this.isModified("password")) return next();
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
-  next();
 });
 
 // مقارنة كلمة المرور عند تسجيل الدخول
